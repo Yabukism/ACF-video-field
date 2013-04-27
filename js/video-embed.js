@@ -1,5 +1,14 @@
 (function($){
 
+/*
+jQuery(document).ready(function($){
+
+
+    $( "#tabs" ).tabs();
+
+});
+*/
+
 	/*
 	*  acf/setup_fields
 	*
@@ -21,7 +30,9 @@
 
 		$(".youtubesearch").click(function(){
 			
-		GetContent("dogs","search");
+			
+			
+		GetContent($(this).prev('.search_field').val(),"search");
 			
 		});
 
@@ -75,7 +86,7 @@
 						var text = '<div align="left" class="video">' +
 							'<b class="title">' + title + '</b><br/>' +
 							'Published: ' + date_pub + ' by ' + author_text + '<br/>' +
-							'<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/' + id + '&hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.youtube.com/v/' + id + '&hl=en&fs=1" type="application/x-shockwave-flash" allowfullscreen="true" width="425" height="344"></embed></object></div>';
+							'<iframe width="560" height="315" src="http://www.youtube.com/embed/'+id+'" frameborder="0" allowfullscreen></iframe></div>';
 						
 						// Now append to the HTML display
 						$(text).appendTo("#videos");

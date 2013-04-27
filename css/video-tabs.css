@@ -1,0 +1,7 @@
+
+.field .videoTabs,.field .videoTabContainer{
+	border-width: 0px;
+}
+.field .videoTabButtons{
+border-bottom: 1px solid;
+}

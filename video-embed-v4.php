@@ -144,17 +144,24 @@ class acf_video_embed extends acf_field
 <h3>YouTube Data API Example: Using JSON and JQuery to Search</h3>
 YouTube ID: <input type="text" size="30" id="id_field" value="itpdwd">
 <input type="button" value="Get by ID" onclick="GetContent(document.getElementById(&quot;id_field&quot;).value,&quot;id&quot;);"> &nbsp; &nbsp; 
-Search Term: <input type="text" size="30" id="search_field" value="soccer">
+Search Term: <input type="text" size="30" class="search_field" value="soccer">
 <input type="button" value="Search" class="youtubesearch" onclick=""> &nbsp; &nbsp; 
 <input type="button" value="Hide" onclick="document.getElementById(&quot;videos&quot;).innerHTML = &quot;&quot;;">
 <p>
 </p><div id="videos"></div>
 <p></p>
 
+		
+		
+
+		
+
+	
+	
 
 
 		
-		
+
 		
 		<?
 		
@@ -185,18 +192,38 @@ Search Term: <input type="text" size="30" id="search_field" value="soccer">
 		
 	wp_enqueue_script('jquery');
 		// register acf scripts
-		wp_register_script( 'acf-limiter', $this->settings['dir'] . 'js/video-embed.js', array('jquery'), $this->settings['version'] );
 		
 		
 		//jquery-ui-progressbar
 		
 		
 		// scripts
+
+
+		
+		
+		
+		
+		//jquery-ui-progressbar
+		wp_enqueue_script( 'jquery-ui-tabs');
+		
+				wp_register_script( 'acf-limiter', $this->settings['dir'] . 'js/video-embed.js', array('jquery'), $this->settings['version'] );
+
+
+		// styles
+		
+			wp_register_style( 'video-tabs', $this->settings['dir'] . 'css/video-tabs.css', array('acf-input'), $this->settings['version'] ); 
+	
+		wp_enqueue_style(array(
+			'video-tabs'
+		));
+		
+		
+		
 		wp_enqueue_script(array(
 			'acf-limiter',	
 		));
-
-
+		
 		
 	}
 	
