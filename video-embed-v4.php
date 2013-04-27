@@ -205,9 +205,9 @@ Search Term: <input type="text" size="30" class="search_field" value="soccer">
 		
 		
 		//jquery-ui-progressbar
-		wp_enqueue_script( 'jquery-ui-tabs');
+		//wp_enqueue_script( 'jquery-ui-tabs');
 		
-				wp_register_script( 'acf-limiter', $this->settings['dir'] . 'js/video-embed.js', array('jquery'), $this->settings['version'] );
+				wp_register_script( 'acf-video', $this->settings['dir'] . 'js/video-embed.js', array('jquery'), $this->settings['version'] );
 
 
 		// styles
@@ -221,7 +221,7 @@ Search Term: <input type="text" size="30" class="search_field" value="soccer">
 		
 		
 		wp_enqueue_script(array(
-			'acf-limiter',	
+			'acf-video',	
 		));
 		
 		
