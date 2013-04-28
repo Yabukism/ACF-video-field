@@ -146,7 +146,7 @@ class acf_video_embed extends acf_field
 					<img src="<?php echo $this->settings['dir'] ?>/images/youTube.png" />
 					
 				</a> - 
-					
+
 				<a href='#' class="acf-vf-ContentSelect" data-pane-select="youTubeSearch2">YouTube Search
 					<img src="<?php echo $this->settings['dir'] ?>/images/vimeo.png" />
 					

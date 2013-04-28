@@ -122,7 +122,8 @@ jQuery(document).ready(function($){
 		{
 			var default_id = "itpdwd"; // Define default YouTube username ID here
 			var max_videos = 4;  // How many to show
-			
+			var url;
+
 			if (!foreign_id)
 			{	foreign_id = default_id;
 				view_type = "id";
@@ -131,17 +132,9 @@ jQuery(document).ready(function($){
 			// Compute the request URL (either by username or by search term)
 			//  Note: "alt=json-in-script&callback=?" params are in URL to allow cross-domain JSON using jQuery
 			//  See: http://docs.jquery.com/Ajax/jQuery.getJSON#urldatacallback
-			var url;
-			if (view_type=="id"){
-				url = "http://gdata.youtube.com/feeds/api/users/" + escape(foreign_id) + "/uploads?max-results=" + max_videos +
-					"&alt=json-in-script&callback=?";
-			}else{
-				url = "http://gdata.youtube.com/feeds/api/videos?vq=" + escape(foreign_id) + "&max-results=" + max_videos +
-					"&alt=json-in-script&callback=?";
-			}
 			
 			
-			url = "http://gdata.youtube.com/feeds/api/videos?vq=lemons&max-results=5&v=2&alt=json-in-script&callback=?";
+			url = "http://gdata.youtube.com/feeds/api/videos?vq=" + escape(foreign_id) + "&max-results=5&v=2&alt=json-in-script&callback=?";
 			
 			
 			// Clear the HTML display
