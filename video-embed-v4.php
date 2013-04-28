@@ -145,11 +145,11 @@ class acf_video_embed extends acf_field
 				<a href='#' class="acf-vf-ContentSelect" data-pane-select="youTubeSearch">YouTube tag
 					<img src="<?php echo $this->settings['dir'] ?>/images/youTube.png" />
 					
-				</a> - 
+				</a> 
 				<a href='#' class="acf-vf-ContentSelect" data-pane-select="youTubeSearch2">YouTube Search
 					<img src="<?php echo $this->settings['dir'] ?>/images/vimeo.png" />
 					
-				</a> - 
+				</a> -
 	<!-- 			<a href='#' class="acf-vf-ContentSelect" data-pane-select="youTubeSearch">Vimeo Search</a> -  -->
 				<a href='#' class="acf-vf-ContentSelect" data-pane-select="youTubeSearch3">Youtube Embed</a> - 
 	<!-- 			<a href='#' class="acf-vf-ContentSelect" data-pane-select="youTubeSearch">Vimeo Embed</a> -  -->
