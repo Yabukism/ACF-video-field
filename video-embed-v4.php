@@ -136,40 +136,81 @@ class acf_video_embed extends acf_field
 		
 		echo('<div id="progressbar-'.$field['id'].'" class="progressBar"></div>');
 */
-		
+
+
 		?>
 		
-		
-		
-<h3>YouTube Data API Example: Using JSON and JQuery to Search</h3>
-YouTube ID: <input type="text" size="30" id="id_field" value="itpdwd">
-<input type="button" value="Get by ID" onclick="GetContent(document.getElementById(&quot;id_field&quot;).value,&quot;id&quot;);"> &nbsp; &nbsp; 
-Search Term: <input type="text" size="30" class="search_field" value="soccer">
-<input type="button" value="Search" class="youtubesearch" onclick=""> &nbsp; &nbsp; 
-<input type="button" value="Hide" onclick="document.getElementById(&quot;videos&quot;).innerHTML = &quot;&quot;;">
-<p>
-</p><div id="videos"></div>
-<p></p>
-
-		
-		
-
-		
-
-	
-	
-
-
-		
+		<div class="acf-vf">
+			<div class="acf-vf-navigation">
+				<a href='#' class="acf-vf-ContentSelect" data-pane-select="youTubeSearch">YouTube tag
+					<img src="<?php echo $this->settings['dir'] ?>/images/youTube.png" />
+					
+				</a> - 
+					
+				<a href='#' class="acf-vf-ContentSelect" data-pane-select="youTubeSearch2">YouTube Search
+					<img src="<?php echo $this->settings['dir'] ?>/images/vimeo.png" />
+					
+				</a> - 
+	<!-- 			<a href='#' class="acf-vf-ContentSelect" data-pane-select="youTubeSearch">Vimeo Search</a> -  -->
+				<a href='#' class="acf-vf-ContentSelect" data-pane-select="youTubeSearch3">Youtube Embed</a> - 
+	<!-- 			<a href='#' class="acf-vf-ContentSelect" data-pane-select="youTubeSearch">Vimeo Embed</a> -  -->
+			</div>
+			<div class="acf-vf-container">
+				<div class="acf-vf-ContentPane youTubeSearch acf-vf-active" style='background:blue'>
+				
+					<h3>YouTube API</h3>
+					YouTube ID: <input type="text" size="30" id="id_field" value="itpdwd">
+					<input type="button" value="Get by ID" onclick="GetContent(document.getElementById(&quot;id_field&quot;).value,&quot;id&quot;);"> &nbsp; &nbsp; 
+					Search Term: <input type="text" size="30" class="search_field" value="soccer">
+					<input type="button" value="Search" class="youtubesearch" onclick=""> &nbsp; &nbsp; 
+					<input type="button" value="Hide" onclick="document.getElementById(&quot;videos&quot;).innerHTML = &quot;&quot;;">
+					
+					<div id="videos"></div>
+					<p></p>
+				</div>
+				<div class="acf-vf-ContentPane youTubeSearch2" style='background:red'>
+					Another pane
+				</div>
+			</div>
+		</div>
 
 		
 		<?
+/*
+		$(postbox).find('.field_type-tab').each(function(){
+			
+			// vars
+			var field = $(this),
+				tab = field.find('.acf-tab'),
+				id = tab.attr('data-id'),
+				label = tab.html(),
+				postbox = field.closest('.acf_postbox'),
+				inside = postbox.children('.inside');
+			
+
+			
+			// only run once for each tab
+			if( tab.hasClass('acf-tab-added') )
+			{
+				return;
+			}
+			tab.addClass('acf-tab-added');
+			
+			
+			// create tab group if it doesnt exist
+			if( ! inside.children('.acf-tab-group').exists() )
+			{
+				inside.children('.field_type-tab:first').before('<ul class="hl clearfix acf-tab-group"></ul>');
+			}
+			
+			
+			// add tab
+			inside.children('.acf-tab-group').append('<li class="field_key-' + id + '" data-field_key="' + id + '"><a class="acf-tab-button" href="#" data-id="' + id + '">' + label + '</a></li>');
+			
+			
+		});
 		
-		
-		
-		
-		
-		
+*/
 				
 		
 	}
@@ -212,10 +253,10 @@ Search Term: <input type="text" size="30" class="search_field" value="soccer">
 
 		// styles
 		
-			wp_register_style( 'video-tabs', $this->settings['dir'] . 'css/video-tabs.css', array('acf-input'), $this->settings['version'] ); 
+		wp_register_style( 'video-field', $this->settings['dir'] . 'css/video-field.css', array('acf-input'), $this->settings['version'] ); 
 	
 		wp_enqueue_style(array(
-			'video-tabs'
+			'video-field'
 		));
 		
 		
