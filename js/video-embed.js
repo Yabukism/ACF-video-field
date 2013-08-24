@@ -45,7 +45,7 @@ jQuery(document).ready(function($){
 				$searchTerm = $(this).val();
 			
 				//alert($searchTerm);
-				GetContent($(this).val(),"search");
+				getYoutube($(this).val(),"search");
 
 				return false;
 			}
@@ -66,7 +66,7 @@ jQuery(document).ready(function($){
 			$searchTerm = $(this).prev('.videoSearchBox').val();
 			
 			//alert($searchTerm);
-			GetContent($(this).prev('.videoSearchBox').val(),"search");
+			getYoutube($(this).prev('.videoSearchBox').val(),"search");
 
 			
 			
@@ -158,14 +158,27 @@ jQuery(document).ready(function($){
 */
 
 
+/*
+Client ID (Also known as Consumer Key or API Key)	1a1c93c6ce31ab04f15abe7ef95d315dbe1d64b7
+Client Secret (Also known as Consumer Secret or API Secret)	632706533ac0e4d076b9a5d6d71d92f4cb10ea1a
+Request Token URL	https://vimeo.com/oauth/request_token
+Authorize URL	https://vimeo.com/oauth/authorize
+Access Token URL	https://vimeo.com/oauth/access_token
+Your Callback URL (edit)	none
+Your access token
+
+You can use this OAuth Access Token to access your account with this app.
+Access token	bcdba66966389d6d6b5405663aaf8108
+Access token secret	ab44a37cf64dd00194f53e29fb30e24d3c5674c1
+Permissions	Read, write, delete
+*/
+
 
 
 
 		//Basic youtube search....
 
-
-		function GetContent(foreign_id,view_type)
-		{
+		function getYoutube(foreign_id,view_type){
 			var default_id = "itpdwd"; // Define default YouTube username ID here
 			var max_videos = 4;  // How many to show
 			var url;
@@ -180,11 +193,16 @@ jQuery(document).ready(function($){
 			//  See: http://docs.jquery.com/Ajax/jQuery.getJSON#urldatacallback
 			
 			
-			url = "http://gdata.youtube.com/feeds/api/videos?vq=" + escape(foreign_id) + "&max-results=6&v=2&alt=json-in-script&callback=?";
+			
+			
+			$(".acf-vf-results").html('');
+			
+			
+			url = "http://gdata.youtube.com/feeds/api/videos?vq=" + escape(foreign_id) + "&max-results=8&v=2&alt=json-in-script&callback=?";
 			
 			
 			// Clear the HTML display
-			document.getElementById("videos").innerHTML = "";
+			//document.getElementById("videos").innerHTML = "";
 			
 			// Get the data from the web service and process
 			$.getJSON(url,
@@ -238,7 +256,7 @@ jQuery(document).ready(function($){
 		
 		}
 
-
+		//end
 	});
 
 			

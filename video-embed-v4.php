@@ -141,41 +141,16 @@ class acf_video_embed extends acf_field
 		?>
 		
 		<div class="acf-vf">
-			<form class='videoSearchForm' action="#">
-				<input class="input videoSearchBox" />
-				<input type="submit" value="Submit" class="input videoSearchSubmit">
-			</form>
 			<div class="acf-vf-navigation">
-				<a href='#' class="acf-vf-ContentSelect" data-pane-select="youTubeSearch">YouTube tag
-					<img src="<?php echo $this->settings['dir'] ?>/images/youTube.png" />
-					
-				</a> 
-				<a href='#' class="acf-vf-ContentSelect" data-pane-select="youTubeSearch2">YouTube Search
-					<img src="<?php echo $this->settings['dir'] ?>/images/vimeo.png" />
-					
-				</a> -
-	<!-- 			<a href='#' class="acf-vf-ContentSelect" data-pane-select="youTubeSearch">Vimeo Search</a> -  -->
-				<a href='#' class="acf-vf-ContentSelect" data-pane-select="youTubeSearch3">Youtube Embed</a> - 
-	<!-- 			<a href='#' class="acf-vf-ContentSelect" data-pane-select="youTubeSearch">Vimeo Embed</a> -  -->
+				<form class='videoSearchForm' action="#">
+					<input class="input videoSearchBox" />
+					<input type="submit" value="Submit" class="input videoSearchSubmit">
+				</form>
 			</div>
-			<div class="acf-vf-container">
-				<div class="acf-vf-ContentPane youTubeSearch acf-vf-active" style='background:blue'>
-				
-
-					Search Term: <input type="text" size="30" class="search_field" value="soccer">
-					<input type="button" value="Search" class="youtubesearch" onclick=""> &nbsp; &nbsp; 
-					<input type="button" value="Hide" onclick="document.getElementById(&quot;videos&quot;).innerHTML = &quot;&quot;;">
-					
+			<div class="acf-vf-results">
 					<div id="videos"></div>
-					<p></p>
-				</div>
-				<div class="acf-vf-ContentPane youTubeSearch2" style='background:red'>
-					Another pane
-				</div>
-			</div>
-		</div>
-		<div class="acf-vf-results">
 
+			</div>
 		</div>
 		
 		<?
