@@ -141,6 +141,10 @@ class acf_video_embed extends acf_field
 		?>
 		
 		<div class="acf-vf">
+			<form class='videoSearchForm' action="#">
+				<input class="input videoSearchBox" />
+				<input type="submit" value="Submit" class="input videoSearchSubmit">
+			</form>
 			<div class="acf-vf-navigation">
 				<a href='#' class="acf-vf-ContentSelect" data-pane-select="youTubeSearch">YouTube tag
 					<img src="<?php echo $this->settings['dir'] ?>/images/youTube.png" />
@@ -157,9 +161,7 @@ class acf_video_embed extends acf_field
 			<div class="acf-vf-container">
 				<div class="acf-vf-ContentPane youTubeSearch acf-vf-active" style='background:blue'>
 				
-					<h3>YouTube API</h3>
-					YouTube ID: <input type="text" size="30" id="id_field" value="itpdwd">
-					<input type="button" value="Get by ID" onclick="GetContent(document.getElementById(&quot;id_field&quot;).value,&quot;id&quot;);"> &nbsp; &nbsp; 
+
 					Search Term: <input type="text" size="30" class="search_field" value="soccer">
 					<input type="button" value="Search" class="youtubesearch" onclick=""> &nbsp; &nbsp; 
 					<input type="button" value="Hide" onclick="document.getElementById(&quot;videos&quot;).innerHTML = &quot;&quot;;">
@@ -172,7 +174,9 @@ class acf_video_embed extends acf_field
 				</div>
 			</div>
 		</div>
+		<div class="acf-vf-results">
 
+		</div>
 		
 		<?
 /*

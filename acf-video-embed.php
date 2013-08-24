@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Advanced Custom Fields: Video embed
+Plugin Name: Advanced Custom Fields: Easy video embed
 Plugin URI: http://wordpress.org/extend/plugins/advanced-custom-fields-limiter-field/
 Description: Video stuff...
 Version: 1.0.0
@@ -17,7 +17,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 //You tube smaple output
 /*
 <script 
-    type="text/javascript" 
+	    type="text/javascript" 
     src="http://gdata.youtube.com/feeds/users/GoogleDevelopers/uploads?v=2&alt=json-in-script&format=5&callback=showMyVideos">
 </script>
 

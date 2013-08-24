@@ -24,9 +24,60 @@ jQuery(document).ready(function($){
 	*  @return	N/A
 	*/
 	
+	
+	
+	
 	//GetContent(document.getElementById(&quot;id_field&quot;).value,&quot;id&quot;);"
 	//GetContent(document.getElementById(&quot;search_field&quot;).value,&quot;search&quot;);
 	$(document).live('acf/setup_fields', function(e, postbox){
+	
+
+/*
+	    $(".videoSearchForm form").submit(function(e){
+	    	alert("ss");
+		    return false;
+	    });
+*/
+	    
+		$('.input').keydown(function(event){
+			if(event.keyCode == 13) {
+
+				$searchTerm = $(this).val();
+			
+				//alert($searchTerm);
+				GetContent($(this).val(),"search");
+
+				return false;
+			}
+		});
+
+	    
+	    
+/*
+    $("form").submit(function(e){
+        e.preventDefault();
+    });
+*/
+	
+	
+	
+		$('.videoSearchSubmit').live('click', function(){
+			//$searchTerm = GetContent($(this).prev('.videoSearchBox').val(),"search");
+			$searchTerm = $(this).prev('.videoSearchBox').val();
+			
+			//alert($searchTerm);
+			GetContent($(this).prev('.videoSearchBox').val(),"search");
+
+			
+			
+			return false;
+		});
+	
+	
+	
+
+	
+	
 
 		
 /*
@@ -53,6 +104,7 @@ jQuery(document).ready(function($){
 	});
 */
 
+/*
 	$('.acf-vf-ContentSelect').live('click', function(){
 		
 		console.log($(this).attr('data-pane-select'));
@@ -81,6 +133,7 @@ jQuery(document).ready(function($){
 		return false;
 			
 	});
+*/
 	
 	
 
@@ -108,15 +161,8 @@ jQuery(document).ready(function($){
 
 
 
-		//Basic utube search....
+		//Basic youtube search....
 
-		$(".youtubesearch").click(function(){
-			
-			
-			
-		GetContent($(this).prev('.search_field').val(),"search");
-			
-		});
 
 		function GetContent(foreign_id,view_type)
 		{
@@ -134,7 +180,7 @@ jQuery(document).ready(function($){
 			//  See: http://docs.jquery.com/Ajax/jQuery.getJSON#urldatacallback
 			
 			
-			url = "http://gdata.youtube.com/feeds/api/videos?vq=" + escape(foreign_id) + "&max-results=5&v=2&alt=json-in-script&callback=?";
+			url = "http://gdata.youtube.com/feeds/api/videos?vq=" + escape(foreign_id) + "&max-results=6&v=2&alt=json-in-script&callback=?";
 			
 			
 			// Clear the HTML display
@@ -152,7 +198,7 @@ jQuery(document).ready(function($){
 						
 						var title = item.title.$t;
 						console.log(item);
-		var thumbnail = item.media$group.media$thumbnail[1].url;
+						var thumbnail = item.media$group.media$thumbnail[2].url;
 						// Get first 10 chars of date_taken, which is the date: YYYY-MM-DD
 						var date_pub = item.published.$t.substring(0, 10);
 						
@@ -170,7 +216,7 @@ jQuery(document).ready(function($){
 
 						
 						// Now append to the HTML display
-						$(text).appendTo("#videos");
+						$(text).appendTo(".acf-vf-results");
 						
 						
 						
@@ -184,7 +230,7 @@ jQuery(document).ready(function($){
 
 						
 						// Now append to the HTML display
-						$(text).appendTo("#videos");
+						//$(text).appendTo(".acf-vf-results");
 			
 					});
 				}
@@ -200,4 +246,50 @@ jQuery(document).ready(function($){
 
 })(jQuery);
 
+
+
+/*
+
+Use this function to process the search box
+
+function processURL(url, success){
+    var id;
+
+    if (url.indexOf('youtube.com') > -1) {
+        id = url.split('/')[1].split('v=')[1].split('&')[0];
+        return processYouTube(id);
+    } else if (url.indexOf('youtu.be') > -1) {
+        id = url.split('/')[1];
+        return processYouTube(id);
+    } else if (url.indexOf('vimeo.com') > -1) {
+        if (url.match(/^vimeo.com\/[0-9]+/)) {
+            id = url.split('/')[1];
+        } else if (url.match(/^vimeo.com\/channels\/[\d\w]+#[0-9]+/)) {
+            id = url.split('#')[1];
+        } else if (url.match(/vimeo.com\/groups\/[\d\w]+\/videos\/[0-9]+/)) {
+            id = url.split('/')[4];
+        } else {
+            throw new Error('Unsupported Vimeo URL');
+        }
+
+        $.ajax({
+            url: 'http://vimeo.com/api/v2/video/' + id + '.json',
+            dataType: 'jsonp',
+            success: function(data) {
+                sucess(data[0].thumbnail_large);
+            }
+        });
+    } else {
+        throw new Error('Unrecognised URL');
+    }
+
+    function processYouTube(id) {
+        if (!id) {
+            throw new Error('Unsupported YouTube URL');
+        }
+
+        sucess('http://i2.ytimg.com/vi/' + id + '/hqdefault.jpg');
+    }
+}
+*/
 
